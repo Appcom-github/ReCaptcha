@@ -12,15 +12,18 @@ let package = Package(
     targets: [
         .target(name: "ReCaptcha",
             path: "ReCaptcha",
-            exclude: [
-                "Classes/Rx"
-            ],
             sources: [
                 "Classes"
             ],
             resources: [
-                .copy("Assets")
+                .copy("Assets/recaptcha.html")
             ]
+        ),
+        
+        .testTarget(
+            name: "ReCaptchaTests",
+            dependencies: ["ReCaptcha"],
+            path: "tests"
         )
     ]
 )
