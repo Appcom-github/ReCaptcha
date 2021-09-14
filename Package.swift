@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.4
 import PackageDescription
 
 let package = Package(
@@ -11,8 +11,16 @@ let package = Package(
     ],
     targets: [
         .target(name: "ReCaptcha",
-            path: "ReCaptcha/Classes",
-            exclude: ["Rx/"]
+            path: "ReCaptcha",
+            exclude: [
+                "Classes/Rx"
+            ],
+            sources: [
+                "Classes"
+            ],
+            resources: [
+                .copy("Assets")
+            ]
         )
     ]
 )
