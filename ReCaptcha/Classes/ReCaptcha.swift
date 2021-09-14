@@ -44,7 +44,7 @@ public class ReCaptcha {
 
     /** Internal data model for CI in unit tests
      */
-    struct Config {
+    public struct Config {
         /// The raw unformated HTML file content
         let html: String
 
@@ -55,15 +55,8 @@ public class ReCaptcha {
         let baseURL: URL
 
         /// The Bundle that holds ReCaptcha's assets
-        private static let bundle: Bundle = {
-            let bundle = Bundle(for: ReCaptcha.self)
-            guard let cocoapodsBundle = bundle
-                .path(forResource: "ReCaptcha", ofType: "bundle")
-                .flatMap(Bundle.init(path:)) else {
-                    return bundle
-            }
-
-            return cocoapodsBundle
+        public static let bundle: Bundle = {
+            return Bundle.module
         }()
 
         /**
